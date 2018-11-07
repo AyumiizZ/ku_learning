@@ -26,6 +26,6 @@ function deleteData() {
 }
 
 firebase.database().ref().on('value', function (snapshot) {
-    const data = snapshot.val()
-    document.getElementById('realtime-data').innerText = JSON.stringify(data, null, 2)
+    const data = snapshot.val();
+    document.getElementById('realtime-data').innerText = JSON.stringify(data, null, 2);
 });
