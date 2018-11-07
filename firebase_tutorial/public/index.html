@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- <style href="index.css"></style> -->
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
     <h1>Welcome to firebase</h1>
-
+    <pre id="realtime-data"></pre>
+    <button onclick="setData()">set</button>
+    <button onclick="updateData()">update</button>
+    <button onclick="pushData()">push</button>
+    <button onclick="deleteData()">delete</button>
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script>
         // Initialize Firebase
