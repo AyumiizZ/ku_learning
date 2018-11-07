@@ -16,6 +16,17 @@
     <button onclick="updateData()">update</button>
     <button onclick="pushData()">push</button>
     <button onclick="deleteData()">delete</button>
+
+    <hr>
+    <h1>Cloud Storage</h1>
+    <div id="file-list"></div>
+    <input type="file" onchange="">
+    <br>
+    <button onclick="upload()">upload</button>
+    <button onclick="pause()">pause</button>
+    <button onclick="resume()">resume</button>
+    <button onclick="cancel()">cancel</button>
+
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script>
         // Initialize Firebase
