@@ -45,7 +45,8 @@ function cancel() {
 firebase.database().ref('files').on('value',function(snapshot){
   const value = snapshot.val();
   const list = Object.values(value);
-  console.log(value)
-  console.log(list)
   document.getElementById('file-list')
+  for(let file of list){
+    document.getElementById('file-list').innerHTML += `<a href="${file.url}">${file.name}</a><br>`
+  }
 })
