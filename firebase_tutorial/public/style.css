@@ -24,3 +24,6 @@ button:hover {
 input[type="text"] {
     font-size: 26px;
 }
+input[type="password"] {
+    font-size: 26px;
+}
