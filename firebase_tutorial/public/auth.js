@@ -20,6 +20,11 @@ function loginWithGoogle() {
   firebase.auth().signInWithPopup(provider)
 }
 
+function loginWithFacebook() {
+  const provider = new firebase.auth.FacebookAuthProvider()
+  firebase.auth().signInWithPopup(provider)
+}
+
 function logout() {
   firebase.auth().signOut()
   // .then(function () {
@@ -33,6 +38,22 @@ firebase.auth().onAuthStateChanged(function(user){
     // Signed in
     const user = firebase.auth().currentUser
     document.getElementById('auth-info').innerText = JSON.stringify(user, null, 2)
+    firebase.database().ref('users').child(user.uid).once('value', function(snapshot){
+      if(!snapshot.exists()){
+        // Create new user
+        firebase.database().ref('users').child(user.uid).set({
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          email: user.email,
+          purchaseHistory: [
+            "Nike",
+            "Adidas",
+            "Converse"
+          ]
+        })
+      }
+      console.log(snapshot.exists())
+    })
   }
   else{
     // Signed Out
