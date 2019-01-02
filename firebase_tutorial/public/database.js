@@ -18,7 +18,7 @@ function updateData() {
 }
 
 function pushData() {
-    firebase.database().ref('profile').child('devices').push("samsung");
+    firebase.database().ref('message').push("ไอ้บ้า");
 }
 
 function deleteData() {

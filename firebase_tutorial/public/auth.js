@@ -33,30 +33,27 @@ function logout() {
   // })
 }
 
-firebase.auth().onAuthStateChanged(function(user){
-  if(user){
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
     // Signed in
-    const user = firebase.auth().currentUser
     document.getElementById('auth-info').innerText = JSON.stringify(user, null, 2)
-    firebase.database().ref('users').child(user.uid).once('value', function(snapshot){
-      if(!snapshot.exists()){
+    firebase.database().ref('users').child(user.uid).once('value', function(snapshot) {
+      if (!snapshot.exists()) {
         // Create new user
-        firebase.database().ref('users').child(user.uid).set({
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          email: user.email,
-          purchaseHistory: [
-            "Nike",
-            "Adidas",
-            "Converse"
-          ]
-        })
+        // firebase.database().ref('users').child(user.uid).set({
+        //   displayName: user.displayName,
+        //   photoURL: user.photoURL,
+        //   email: user.email,
+        //   purchaseHistory: [
+        //     "Nike",
+        //     "Converse",
+        //     "Adidas",
+        //   ]
+        // })
       }
-      console.log(snapshot.exists())
     })
-  }
-  else{
-    // Signed Out
+  } else {
+    // Signed out
     document.getElementById('auth-info').innerText = "No user"
   }
 })
